@@ -28,6 +28,10 @@ local plugins = {
         "stylua",
         "json-lsp",
         "css-lsp",
+        "ts-standard",
+        "docker-compose-language-service", -- docker-compose.yml
+        "dockerfile-language-server", -- Dockerfile
+        "standardjs",
         "eslint-lsp",
         "vue-language-server",
         "typescript-language-server"
@@ -72,6 +76,15 @@ local plugins = {
       require("plugins.configs.lspconfig")
       require('custom.configs.lspconfig')
     end
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    lazy = true,
+    event = "VeryLazy",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = function ()
+      require('plugins.configs.treesitter')
+    end,
   }
 }
 
